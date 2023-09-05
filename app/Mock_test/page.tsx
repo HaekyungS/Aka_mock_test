@@ -2,8 +2,9 @@
 import Link from "next/link";
 import styles from "../../styles/page.module.css";
 import { useEffect, useState } from "react";
-import { number, problem } from "../../data/data";
+import { number, problems } from "../../data/data";
 import { getCookies } from "cookies-next";
+import { Ex } from "../../component/problem";
 
 export default function Page() {
   const [name, setName] = useState("");
@@ -11,7 +12,6 @@ export default function Page() {
   useEffect(() => {
     const user = decodeURIComponent(getCookies()["user"]);
     setName(user);
-    // console.log(name);
   });
 
   return (
@@ -39,7 +39,7 @@ export default function Page() {
       </div>
 
       {/* 문제 */}
-      <div className={`${styles.problem}`}></div>
+      <div className={`${styles.problem}`}>{Ex(problems[0])}</div>
     </div>
   );
 }
