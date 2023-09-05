@@ -1,18 +1,27 @@
 "use client";
 import Link from "next/link";
 import styles from "../styles/page.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { warningMessage, number } from "../data/data";
+import { RyuLink } from "../component/RyuLink";
+import { setCookie, getCookies, deleteCookie } from "cookies-next";
 
 export default function Page() {
   const [name, setName] = useState("");
+
+  useEffect(() => {
+    if (getCookies !== undefined) {
+      deleteCookie("user");
+    }
+  });
 
   return (
     <div>
       {/* 상단 고정부분 */}
       <div className={`${styles.topBox} ${styles.flexColumnCenter}`}>
         <div className={`${styles.topTitle} ${styles.flexRowCenter}`}>
-          <div className={styles.title}>2023 아카이로 류 모의고사</div>
-          <div className={styles.type}>홀수형</div>
+          <div className={styles.title}>2023년도 아카이로 류 모의고사</div>
+          <div className={styles.type}>아카용</div>
         </div>
         <div className={`${styles.topName} ${styles.flexRowCenter}`}>
           <div className={styles.name}>성 명</div>
@@ -24,26 +33,45 @@ export default function Page() {
             onChange={(e) => {
               setName(e.target.value);
             }}
-            onBlur={() => {
-              console.log(name + "잘바뀌니");
-            }}
           ></input>
           <div className={styles.name}>수험번호</div>
           <div className={`${styles.numberbox} ${styles.name} ${styles.flexRowCenter}`}>
-            <div className={styles.numberEA}>2</div>
-            <div className={styles.numberEA}>0</div>
-            <div className={styles.numberEA}>0</div>
-            <div className={styles.numberEA}>2</div>
-            <div className={styles.numberEA}>-</div>
-            <div className={styles.numberEA}>1</div>
-            <div className={styles.numberEA}>1</div>
-            <div className={styles.numberEA}>0</div>
-            <div className={styles.numberEA}>1</div>
+            {number.map((n, index) => {
+              return (
+                <div key={index} className={styles.numberEA}>
+                  {n}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
+
       {/* 주의사항 */}
-      <div className={`${styles.main}`}></div>
+      <div className={`${styles.main}`}>
+        <ul className={`${styles.messageBox} ${styles.flexColumnCenterNoJustify}`}>
+          {warningMessage.map((message, index) => {
+            if (index === 2) {
+              return <RyuLink key={index} />;
+            } else {
+              return (
+                <li key={index} className={styles.message}>
+                  {message}
+                </li>
+              );
+            }
+          })}
+        </ul>
+        <Link
+          href="/Mock_test"
+          className={styles.buttom}
+          onClick={() => {
+            setCookie("user", name);
+          }}
+        >
+          니네가 나에 대해 몰 알아!
+        </Link>
+      </div>
     </div>
   );
 }
