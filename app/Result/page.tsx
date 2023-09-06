@@ -14,26 +14,33 @@ export default function Page() {
 
   useEffect(() => {
     const user = decodeURIComponent(getCookies()["user"]);
-    setName(user);
-
     const userRespon = decodeURIComponent(getCookies()["answer"]);
-    const userResponRe = [];
 
-    userRespon.split(`"`).map((e, index) => {
-      if (index !== 0 && index % 2 === 1) {
-        userResponRe.push(e);
-      }
-    });
+    if (user === "undefined" || userRespon === "undefined") {
+      console.log(typeof user, userRespon);
 
-    setRespon(userResponRe);
+      window.alert("잘못된 접근입니다.");
+      window.location.href = "/";
+    } else {
+      setName(user);
 
-    userResponRe.map((e, index) => {
-      if (e === problems[index].ex[0]) {
-        setScore((score) => score + 1);
-      }
-    });
-    console.log(score);
-  }, []);
+      const userResponRe = [];
+
+      userRespon.split(`"`).map((e, index) => {
+        if (index !== 0 && index % 2 === 1) {
+          userResponRe.push(e);
+        }
+      });
+
+      setRespon(userResponRe);
+
+      userResponRe.map((e, index) => {
+        if (e === problems[index].ex[0]) {
+          setScore((score) => score + 1);
+        }
+      });
+    }
+  }, [getCookies()["user"], getCookies()["answer"]]);
 
   return (
     <div>
