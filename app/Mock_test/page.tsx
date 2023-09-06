@@ -35,9 +35,10 @@ export default function Page() {
       );
     } else if (count >= 10) {
       const hrefLink = respon[count] !== undefined ? "/Result" : "#";
+
       setCookie("answer", respon);
       return (
-        <Link href={hrefLink} className={`${styles.buttom} ${styles.link}`}>
+        <Link href={hrefLink} className={`${styles.buttom} ${styles.link}`} onClick={noCheck}>
           성적보러가기
         </Link>
       );
@@ -48,6 +49,13 @@ export default function Page() {
     const answerAll = [...respon];
     answerAll[count] = answer;
     setRespon(answerAll);
+  };
+
+  const noCheck = (e) => {
+    if (respon[count] === undefined) {
+      e.preventDefault();
+      window.alert("정답을 선택해주세요.");
+    }
   };
 
   return (
