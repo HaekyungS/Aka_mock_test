@@ -11,6 +11,12 @@ export const Ex = (problem: problems) => {
   const [answer, setAnswer] = useState("");
   const [load, setLoad] = useState(false);
   const [exNum, setExNum] = useState([]);
+  const [check, setCheck] = useState([
+    { color: "black" },
+    { color: "black" },
+    { color: "black" },
+    { color: "black" },
+  ]);
 
   useEffect(() => {
     const exNumA = [];
@@ -27,7 +33,7 @@ export const Ex = (problem: problems) => {
     setExNum(exNumA);
     setLoad(true);
     // console.log("useEffect 안 랜덤숫자", exNum);
-  }, []);
+  }, [problem]);
 
   // console.log("useEffect 밖 랜덤숫자", exNum);
   return (
@@ -39,11 +45,24 @@ export const Ex = (problem: problems) => {
           exNum.map((e, index) => {
             return (
               <li
-                className={styles.examLi}
+                className={`${styles.examLi}`}
+                style={check[index]}
                 key={index}
                 onClick={() => {
+                  const reCheck = check.map((e) => {
+                    if (e.color === "red") {
+                      return { color: "black" };
+                    } else {
+                      return { color: "black" };
+                    }
+                  });
+
+                  const update = [...reCheck];
+                  update[index] = { color: "red" };
+                  setCheck(update);
+
                   setAnswer(`${problem.ex[e]}`);
-                  console.log("선택한 답" + answer);
+                  console.log("선택한 답" + problem.ex[e]);
                 }}
               >
                 {problem.ex[e]}
@@ -51,7 +70,6 @@ export const Ex = (problem: problems) => {
             );
           })}
       </ol>
-      <div className={styles.buttom}>다음 문제</div>
     </>
   );
 };
