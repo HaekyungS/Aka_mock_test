@@ -13,7 +13,12 @@ export default function Page() {
 
   useEffect(() => {
     const user = decodeURIComponent(getCookies()["user"]);
-    setName(user);
+    if (user === "undefined") {
+      window.alert("잘못된 접근입니다.");
+      window.location.href = "/";
+    } else {
+      setName(user);
+    }
   }, []);
 
   const NextButton = (count: number) => {
