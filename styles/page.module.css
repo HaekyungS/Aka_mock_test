@@ -140,10 +140,14 @@
 .result {
   width: 70%;
   height: 75%;
-  padding: auto;
+}
+
+.ment {
+  width: 80%;
+  height: 10%;
 }
 
 .resultLink {
-  width: 50%;
-  height: 100%;
+  width: 25%;
+  height: 80%;
 }
