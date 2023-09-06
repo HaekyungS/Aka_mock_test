@@ -7,8 +7,7 @@ interface problems {
   ex: Array<String>;
 }
 
-export const Ex = (problem: problems) => {
-  const [answer, setAnswer] = useState("");
+export const Ex = (problem: problems, answer) => {
   const [load, setLoad] = useState(false);
   const [exNum, setExNum] = useState([]);
   const [check, setCheck] = useState([
@@ -32,6 +31,7 @@ export const Ex = (problem: problems) => {
     }
     setExNum(exNumA);
     setLoad(true);
+    setCheck([{ color: "black" }, { color: "black" }, { color: "black" }, { color: "black" }]);
     // console.log("useEffect 안 랜덤숫자", exNum);
   }, [problem]);
 
@@ -60,8 +60,7 @@ export const Ex = (problem: problems) => {
                   const update = [...reCheck];
                   update[index] = { color: "red" };
                   setCheck(update);
-
-                  setAnswer(`${problem.ex[e]}`);
+                  answer(problem.ex[e]);
                   console.log("선택한 답" + problem.ex[e]);
                 }}
               >

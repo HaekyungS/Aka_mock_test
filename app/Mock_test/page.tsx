@@ -9,6 +9,7 @@ import { Ex } from "../../component/problem";
 export default function Page() {
   const [name, setName] = useState("");
   const [count, setCount] = useState(0);
+  const [respon, setRespon] = useState([]);
 
   useEffect(() => {
     const user = decodeURIComponent(getCookies()["user"]);
@@ -34,6 +35,13 @@ export default function Page() {
         </Link>
       );
     }
+  };
+
+  const answerInsert = (answer) => {
+    const answerAll = [...respon];
+    answerAll[count] = answer;
+    setRespon(answerAll);
+    console.log("되닝", answerAll);
   };
 
   return (
@@ -62,7 +70,7 @@ export default function Page() {
 
       {/* 문제 */}
       <div className={`${styles.problem} ${styles.flexColumnCenter}`}>
-        {Ex(problems[count])}
+        {Ex(problems[count], answerInsert)}
         {NextButton(count)}
       </div>
     </div>
