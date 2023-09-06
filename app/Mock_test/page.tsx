@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "../../styles/page.module.css";
 import { useEffect, useState } from "react";
 import { number, problems } from "../../data/data";
-import { getCookies } from "cookies-next";
+import { getCookies, setCookie } from "cookies-next";
 import { Ex } from "../../component/problem";
 
 export default function Page() {
@@ -29,6 +29,7 @@ export default function Page() {
         </div>
       );
     } else if (count >= 10) {
+      setCookie("answer", respon);
       return (
         <Link href="/Result" className={`${styles.buttom} ${styles.link}`}>
           성적보러가기
