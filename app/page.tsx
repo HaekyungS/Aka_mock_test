@@ -12,6 +12,7 @@ export default function Page() {
   useEffect(() => {
     if (getCookies !== undefined) {
       deleteCookie("user");
+      deleteCookie("answer");
     }
   });
 
