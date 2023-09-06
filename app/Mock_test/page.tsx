@@ -34,9 +34,10 @@ export default function Page() {
         </div>
       );
     } else if (count >= 10) {
+      const hrefLink = respon[count] !== undefined ? "/Result" : "#";
       setCookie("answer", respon);
       return (
-        <Link href="/Result" className={`${styles.buttom} ${styles.link}`}>
+        <Link href={hrefLink} className={`${styles.buttom} ${styles.link}`}>
           성적보러가기
         </Link>
       );
@@ -47,14 +48,7 @@ export default function Page() {
     const answerAll = [...respon];
     answerAll[count] = answer;
     setRespon(answerAll);
-    console.log("되닝", answerAll);
   };
-
-  // const userAnswerChecking=(count:number)=>{
-  //   if(respon[count]!==null){
-  //     count++
-  //   }
-  // }
 
   return (
     <div>
