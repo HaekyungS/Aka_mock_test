@@ -26,3 +26,9 @@ body > div {
   justify-content: center;
   align-items: center;
 }
+
+body > footer {
+  width: 100%;
+  height: 5%;
+  font-size: 15px;
+}
