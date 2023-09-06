@@ -7,8 +7,8 @@ interface problems {
 export const problems: Array<problems> = [
   {
     number: "첫번째",
-    problem: "나는 문제야",
-    ex: ["나는야 정답이야", "2", "3", "4"],
+    problem: "아카이로 류님의 생일은? (이건 맞춰야겠지?)",
+    ex: ["2002년 11월 01일", "2001년 11월 11일", "2002년 11월 10일", "2002년 11월 11일"],
   },
   {
     number: "두번째",
