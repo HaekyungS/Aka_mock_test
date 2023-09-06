@@ -66,8 +66,13 @@ export default function Page() {
         <Link
           href="/Mock_test"
           className={styles.buttom}
-          onClick={() => {
-            setCookie("user", name);
+          onClick={(e) => {
+            if (name === "undefined" || name === "") {
+              e.preventDefault();
+              window.alert("이름을 입력해주세요.");
+            } else {
+              setCookie("user", name);
+            }
           }}
         >
           니네가 나에 대해 몰 알아!
