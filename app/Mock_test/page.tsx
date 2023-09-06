@@ -8,11 +8,33 @@ import { Ex } from "../../component/problem";
 
 export default function Page() {
   const [name, setName] = useState("");
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const user = decodeURIComponent(getCookies()["user"]);
     setName(user);
-  });
+  }, []);
+
+  const NextButton = (count: number) => {
+    if (count < 10) {
+      return (
+        <div
+          className={styles.buttom}
+          onClick={() => {
+            setCount(count + 1);
+          }}
+        >
+          다음 문제
+        </div>
+      );
+    } else if (count >= 10) {
+      return (
+        <Link href="/Result" className={`${styles.buttom} ${styles.link}`}>
+          성적보러가기
+        </Link>
+      );
+    }
+  };
 
   return (
     <div>
@@ -39,7 +61,10 @@ export default function Page() {
       </div>
 
       {/* 문제 */}
-      <div className={`${styles.problem}`}>{Ex(problems[0])}</div>
+      <div className={`${styles.problem} ${styles.flexColumnCenter}`}>
+        {Ex(problems[count])}
+        {NextButton(count)}
+      </div>
     </div>
   );
 }
