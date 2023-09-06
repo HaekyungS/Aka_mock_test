@@ -3,12 +3,14 @@ import Link from "next/link";
 import styles from "../../styles/page.module.css";
 import { useEffect, useState } from "react";
 import { number, problems } from "../../data/data";
-import { getCookies, setCookie } from "cookies-next";
-import { Ex } from "../../component/problem";
+import { getCookies } from "cookies-next";
+import { scoreMent } from "../../data/scoreMent";
+import { grade } from "../../data/grade";
 
 export default function Page() {
   const [name, setName] = useState("");
   const [respon, setRespon] = useState([]);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     const user = decodeURIComponent(getCookies()["user"]);
@@ -16,14 +18,21 @@ export default function Page() {
 
     const userRespon = decodeURIComponent(getCookies()["answer"]);
     const userResponRe = [];
-    console.log("제대로 됐나", userRespon, typeof userRespon);
-    console.log(userRespon.split(`"`));
+
     userRespon.split(`"`).map((e, index) => {
       if (index !== 0 && index % 2 === 1) {
         userResponRe.push(e);
       }
     });
+
     setRespon(userResponRe);
+
+    userResponRe.map((e, index) => {
+      if (e === problems[index].ex[0]) {
+        setScore((score) => score + 1);
+      }
+    });
+    console.log(score);
   }, []);
 
   return (
@@ -51,7 +60,15 @@ export default function Page() {
       </div>
 
       {/* 문제 */}
-      <div className={`${styles.problem} ${styles.flexColumnCenter}`}></div>
+      <div className={`${styles.problem} ${styles.flexColumnCenter}`}>
+        <div>{scoreMent(score)}</div>
+        <div>{name}님의 모의고사 성적은</div>
+        <div>{grade(score)}점 입니다.</div>
+        <div>
+          <Link href="/" />
+          <Link href="https://www.youtube.com/@ryuch.821" />
+        </div>
+      </div>
     </div>
   );
 }
