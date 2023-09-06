@@ -22,7 +22,12 @@ export default function Page() {
         <div
           className={styles.buttom}
           onClick={() => {
-            setCount(count + 1);
+            console.log(respon);
+            if (respon[count] !== undefined) {
+              setCount(count + 1);
+            } else {
+              window.alert("정답을 선택해주세요.");
+            }
           }}
         >
           다음 문제
@@ -44,6 +49,12 @@ export default function Page() {
     setRespon(answerAll);
     console.log("되닝", answerAll);
   };
+
+  // const userAnswerChecking=(count:number)=>{
+  //   if(respon[count]!==null){
+  //     count++
+  //   }
+  // }
 
   return (
     <div>
