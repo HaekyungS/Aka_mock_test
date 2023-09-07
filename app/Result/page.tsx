@@ -22,6 +22,12 @@ export default function Page() {
       window.alert("잘못된 접근입니다.");
       window.location.href = "/";
     } else {
+      if (user === "아카이로 류" || user === "아카이로류") {
+        window.alert(
+          `류님, 생일 축하드립니다!!🤗 플레이 해주셔서 감사합니다!
+늘 행복하시길 응원합니다🥰`
+        );
+      }
       setName(user);
 
       const userResponRe = [];
