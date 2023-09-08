@@ -15,3 +15,4 @@
 
 - NestJS
 - React
+- firebase
