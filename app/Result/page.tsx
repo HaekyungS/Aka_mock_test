@@ -74,10 +74,10 @@ export default function Page() {
 
       {/* 결과 */}
       <div className={`${styles.result} ${styles.flexColumnCenter}`}>
-        <div className={`${styles.ment}`}>{scoreMent(score)}</div>
+        <div className={`${styles.scoreMent}`}>{scoreMent(score)}</div>
         <div className={`${styles.ment}`}>{name}님의 모의고사 성적은</div>
         <div className={`${styles.ment}`}>{grade(score)}점 입니다.</div>
-        <div className={`${styles.ment} ${styles.flexRowCenter}`}>
+        <div className={`${styles.buttonMent} ${styles.flexRowCenter}`}>
           <Link className={`${styles.link} ${styles.resultLink}`} href="/">
             다시 하기
           </Link>
