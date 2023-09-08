@@ -27,7 +27,6 @@ export default function Page() {
         <div
           className={styles.buttom}
           onClick={() => {
-            console.log(respon);
             if (respon[count] !== undefined) {
               setCount(count + 1);
             } else {

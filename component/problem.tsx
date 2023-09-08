@@ -61,7 +61,6 @@ export const Ex = (problem: problems, answer) => {
                   update[index] = { color: "red" };
                   setCheck(update);
                   answer(problem.ex[e]);
-                  console.log("선택한 답" + problem.ex[e]);
                 }}
               >
                 {problem.ex[e]}
