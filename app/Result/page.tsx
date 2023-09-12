@@ -84,6 +84,7 @@ export default function Page() {
           <Link
             className={`${styles.link} ${styles.resultLink}`}
             href="https://www.youtube.com/@ryuch.821"
+            target="_blank"
           >
             공부 하러가기
           </Link>
