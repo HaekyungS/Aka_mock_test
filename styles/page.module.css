@@ -96,6 +96,7 @@
 
 .buttom:hover {
   color: red;
+  cursor: pointer;
 }
 
 .link {
