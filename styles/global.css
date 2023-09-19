@@ -27,6 +27,21 @@ body > div {
   align-items: center;
 }
 
+@media screen and (max-width: 1219px) {
+  body {
+    align-items: stretch;
+  }
+  body > div {
+    width: 1220px;
+  }
+}
+
+@media (min-width: 1220px) and (max-width: 1220px) {
+  body > div {
+    width: 1220px;
+  }
+}
+
 body > footer {
   width: 100%;
   height: 5%;
