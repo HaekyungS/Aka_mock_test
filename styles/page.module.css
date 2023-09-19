@@ -64,6 +64,7 @@
 
 .numberEA {
   width: 11.11%;
+  height: auto;
   border-right: 1px solid black;
 }
 
@@ -74,8 +75,6 @@
   height: 70%;
   margin-top: 50px;
   border: 1px solid black;
-  display: flex;
-  flex-direction: column;
 }
 
 .messageBox {
@@ -85,7 +84,6 @@
 }
 
 .message {
-  font-size: 25px;
   width: 82%;
   text-align: left;
   margin: auto;
@@ -169,4 +167,18 @@
 .resultLink {
   width: 25%;
   height: 80%;
+}
+
+@media screen and (max-height: 860px) {
+  .title {
+    font-size: 42px;
+  }
+
+  .type {
+    font-size: 35px;
+  }
+
+  .scoreMent {
+    font-size: 50px;
+  }
 }
