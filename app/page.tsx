@@ -49,7 +49,7 @@ export default function Page() {
       </div>
 
       {/* 주의사항 */}
-      <div className={`${styles.main}`}>
+      <div className={`${styles.main} ${styles.flexColumnCenter}`}>
         <ul className={`${styles.messageBox} ${styles.flexColumnCenterNoJustify}`}>
           {warningMessage.map((message, index) => {
             if (index === 2) {
