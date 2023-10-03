@@ -8,7 +8,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <Head />
       <body className={gowunDodum.className}>
         {children}
-        <footer>CopyrightⓒPowered by 쪼에(@dailyy_zoe) All Right Reserved</footer>
+        <footer>CopyrightⓒPowered by 쪼에(@zoehaee) All Right Reserved</footer>
       </body>
     </html>
   );
