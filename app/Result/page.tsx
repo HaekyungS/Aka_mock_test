@@ -24,7 +24,7 @@ export default function Page() {
       window.alert("잘못된 접근입니다.");
       window.location.href = "/";
     } else {
-      if (user === "아카이로 류" || user === "아카이로류" || "류") {
+      if (user === "아카이로 류" || user === "아카이로류" || user === "류") {
         setModal(true);
       }
       setName(user);
