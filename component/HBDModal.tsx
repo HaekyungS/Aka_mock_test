@@ -1,6 +1,5 @@
 import Link from "next/link";
 import styles from "../styles/page.module.css";
-import { Confetti } from "./Confetti";
 
 export const HBDModal = ({ onClose }) => {
   return (
