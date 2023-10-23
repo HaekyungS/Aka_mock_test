@@ -190,6 +190,22 @@
   font-size: 15px;
 }
 
+.modalClose {
+  width: 85%;
+  height: 5%;
+  text-align: right;
+  cursor: pointer;
+}
+
+.modalClose:hover {
+  color: red;
+}
+
+.modalText {
+  width: 93%;
+  height: 80%;
+}
+
 .confetti {
   position: fixed;
   width: 100%;
