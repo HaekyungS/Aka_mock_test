@@ -6,11 +6,13 @@ import { number, problems } from "../../data/data";
 import { getCookies } from "cookies-next";
 import { scoreMent } from "../../data/scoreMent";
 import { grade } from "../../data/grade";
+import { HBDModal } from "../../component/HBDModal";
 
 export default function Page() {
   const [name, setName] = useState("");
   const [respon, setRespon] = useState([]);
   const [score, setScore] = useState(0);
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     const user = decodeURIComponent(getCookies()["user"]);
@@ -22,11 +24,12 @@ export default function Page() {
       window.alert("잘못된 접근입니다.");
       window.location.href = "/";
     } else {
-      if (user === "아카이로 류" || user === "아카이로류") {
-        window.alert(
-          `류님, 생일 축하드립니다!!🤗 플레이 해주셔서 감사합니다!
-늘 행복하시길 응원합니다🥰`
-        );
+      if (user === "아카이로 류" || user === "아카이로류" || "류") {
+        setModal(true);
+        //         window.alert(
+        //           `류님, 생일 축하드립니다!!🤗 플레이 해주셔서 감사합니다!
+        // 늘 행복하시길 응원합니다🥰`
+        //         );
       }
       setName(user);
 
@@ -50,8 +53,15 @@ export default function Page() {
 
   return (
     <div>
+      {modal && <HBDModal />}
+
       {/* 상단 고정부분 */}
-      <div className={`${styles.topBox} ${styles.flexColumnCenter}`}>
+      <div
+        className={`${styles.topBox} ${styles.flexColumnCenter}`}
+        onClick={() => {
+          setModal(false);
+        }}
+      >
         <div className={`${styles.topTitle} ${styles.flexRowCenter}`}>
           <div className={styles.title}>2023년도 아카이로 류 모의고사</div>
           <div className={styles.type}>아카용</div>
@@ -73,7 +83,12 @@ export default function Page() {
       </div>
 
       {/* 결과 */}
-      <div className={`${styles.result} ${styles.flexColumnCenter}`}>
+      <div
+        className={`${styles.result} ${styles.flexColumnCenter}`}
+        onClick={() => {
+          setModal(false);
+        }}
+      >
         <div className={`${styles.scoreMent}`}>{scoreMent(score)}</div>
         <div className={`${styles.ment}`}>{name}님의 모의고사 성적은</div>
         <div className={`${styles.ment}`}>{grade(score)}점 입니다.</div>
