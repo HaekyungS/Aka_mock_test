@@ -6,9 +6,11 @@ export const HBDModal = ({ onClose }) => {
   return (
     <div className={styles.modal}>
       <div className={`${styles.modalContainer} ${styles.flexColumnCenter}`}>
-        <div className={styles.modalClose} onClick={onClose}>
-          X
-          <br />
+        <div className={styles.modalTop}>
+          <div className={styles.modalClose} onClick={onClose}>
+            X
+            <br />
+          </div>
         </div>
         <div className={styles.modalText}>
           류님! 생일 축하드립니다!!🤗
@@ -26,7 +28,7 @@ export const HBDModal = ({ onClose }) => {
           </Link>
         </div>
       </div>
-      {/* <Confetti /> */}
+      <Confetti />
     </div>
   );
 };
