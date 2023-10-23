@@ -14,6 +14,7 @@ export const Confetti = () => {
       refAnimationInstance.current({
         ...opts,
         origin: { y: 0.7 },
+        colors: ["#f12828", "#fd5454", "#fc1919"],
         particleCount: Math.floor(200 * particleRatio),
       });
   }, []);
@@ -22,12 +23,12 @@ export const Confetti = () => {
 
   const fire = useCallback(() => {
     makeShot(0.25, {
-      spread: 26,
+      spread: 50,
       startVelocity: 55,
     });
 
     makeShot(0.2, {
-      spread: 60,
+      spread: 70,
     });
 
     makeShot(0.35, {
@@ -38,7 +39,7 @@ export const Confetti = () => {
 
     makeShot(0.1, {
       spread: 120,
-      startVelocity: 25,
+      startVelocity: 45,
       decay: 0.92,
       scalar: 1.2,
     });
@@ -46,6 +47,27 @@ export const Confetti = () => {
     makeShot(0.1, {
       spread: 120,
       startVelocity: 45,
+      decay: 0.92,
+      scalar: 1.2,
+      particleCount: 100,
+    });
+
+    makeShot(0.1, {
+      spread: 150,
+      startVelocity: 45,
+      particleCount: 100,
+    });
+
+    makeShot(0.1, {
+      spread: 170,
+      startVelocity: 45,
+      particleCount: 100,
+    });
+
+    makeShot(0.1, {
+      spread: 190,
+      startVelocity: 45,
+      particleCount: 100,
     });
   }, [makeShot]);
 
