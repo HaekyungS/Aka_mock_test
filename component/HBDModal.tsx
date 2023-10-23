@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "../styles/page.module.css";
+import { Confetti } from "./Confetti";
 
 export const HBDModal = () => {
   return (
@@ -22,6 +23,7 @@ export const HBDModal = () => {
         <br />
         <div className={styles.modalFont}>*주변을 클릭 하시면 창이 닫힙니다.*</div>
       </div>
+      <Confetti />
     </div>
   );
 };
