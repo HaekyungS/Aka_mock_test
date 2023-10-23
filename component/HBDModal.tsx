@@ -26,7 +26,6 @@ export const HBDModal = ({ onClose }) => {
           </Link>
         </div>
       </div>
-      {/* <Confetti /> */}
     </div>
   );
 };
