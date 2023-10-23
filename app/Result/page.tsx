@@ -49,15 +49,16 @@ export default function Page() {
 
   return (
     <div>
-      {modal && <HBDModal />}
+      {modal && (
+        <HBDModal
+          onClose={() => {
+            setModal(false);
+          }}
+        />
+      )}
 
       {/* 상단 고정부분 */}
-      <div
-        className={`${styles.topBox} ${styles.flexColumnCenter}`}
-        onClick={() => {
-          setModal(false);
-        }}
-      >
+      <div className={`${styles.topBox} ${styles.flexColumnCenter}`}>
         <div className={`${styles.topTitle} ${styles.flexRowCenter}`}>
           <div className={styles.title}>2023년도 아카이로 류 모의고사</div>
           <div className={styles.type}>아카용</div>
@@ -79,12 +80,7 @@ export default function Page() {
       </div>
 
       {/* 결과 */}
-      <div
-        className={`${styles.result} ${styles.flexColumnCenter}`}
-        onClick={() => {
-          setModal(false);
-        }}
-      >
+      <div className={`${styles.result} ${styles.flexColumnCenter}`}>
         <div className={`${styles.scoreMent}`}>{scoreMent(score)}</div>
         <div className={`${styles.ment}`}>{name}님의 모의고사 성적은</div>
         <div className={`${styles.ment}`}>{grade(score)}점 입니다.</div>
