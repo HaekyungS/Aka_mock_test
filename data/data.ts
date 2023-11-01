@@ -69,7 +69,7 @@ export const problems: Array<problems> = [
     number: "열번째",
     problem:
       "2023년 09월 25일, 초중고 생활기록부 탐방에서 고등학교 3학년 1학기 성적표에서 볼 수 있는 성적 등급 끼리 묶인 것은?",
-    ex: ["B, E", "C, E", "C, D, E", "B, C, E"],
+    ex: ["B, E", "D, E", "C, D, E", "B, C, E"],
   },
   {
     number: "열한번째",
